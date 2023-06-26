@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:form="">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        div.field {
+            padding-bottom: 5px;
+        }
+
+        div.field label {
+            display: block;
+            float: left;
+            width: 70px;
+            height: 15px;
+          text-align: center;
+        }
+
+    </style>
+    <title>Add new user</title>
+</head>
+<body>
+<form th:method="POST" th:action="@{/users}" th:object="${newUser}">
+    <form:erros path="name"/>
+    </br>
+    <div class="field">
+        <label for="name">Enter name: </label>
+        <input type="text" th:field="*{name}" id="name"/>
+        <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</td>
+    </div>
+    <br/>
+    <div class="field">
+        <label for="lastname">Enter lastname: </label>
+        <input type="text" th:field="*{lastName}" id="lastname"/>
+        <td th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">Name Error</td>
+    </div>
+    <br/>
+    <div class="field">
+        <label for="age">Enter age: </label>
+        <input type="text" th:field="*{age}" id="age"/>
+        <td th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Name Error</td>
+    </div>
+    <br/>
+    <input type="submit" value="Create!"/>
+</form>
+</body>
+</html>

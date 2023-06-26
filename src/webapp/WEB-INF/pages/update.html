@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        div.field {
+            padding-bottom: 5px;
+        }
+
+        div.field label {
+            display: block;
+            float: left;
+            width: 70px;
+            height: 15px;
+            text-align: center;
+        }
+
+    </style>
+    <title>Edit user</title>
+</head>
+<body>
+<form th:method="PATCH" th:action="@{/users/{id}(id=${user.getId()})}" th:object="${user}">
+    <div class="field">
+        <label for="name">Enter name: </label>
+        <input type="text" th:field="*{name}" id="name"/>
+    </div>
+    <br/>
+    <div class="field">
+        <label for="lastname">Enter lastname: </label>
+        <input type="text" th:field="*{lastName}" id="lastname"/>
+    </div>
+    <br/>
+    <div class="field">
+        <label for="age">Enter age: </label>
+        <input type="text" th:field="*{age}" id="age"/>
+    </div>
+    <br/>
+    <input type="submit" value="Update!"/>
+</form>
+</body>
+</html>
