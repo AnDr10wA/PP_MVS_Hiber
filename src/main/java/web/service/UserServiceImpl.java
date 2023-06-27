@@ -30,8 +30,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void deleteUser(int id) {
-        userDAO.deleteUser(id);
+    public void deleteUser(Long id) {
+        userDAO.deleteUser(showUser(id));
     }
 
     @Override
@@ -40,7 +40,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User showUser(int id) {
+    public User showUser(Long id) {
         return userDAO.showUser(id);
     }
 }
